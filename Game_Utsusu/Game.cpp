@@ -9,6 +9,7 @@ Stage	tstage;
 Player	tplayer;
 MoveFloor	entity[ENTITY_MAX];
 DropFloor	df[ENTITY_MAX];
+Enemy	test;
 
 using	namespace Game;
 
@@ -38,6 +39,7 @@ void	game_main(void)
 		entity[0].update(3.f, 0, 1);
 		df[0].update();
 		tplayer.update();
+		test.update();
 		break;
 	case mode_over:
 		break;
@@ -53,6 +55,7 @@ void	game_main(void)
 		tstage.draw();
 		entity[0].draw();
 		df[0].draw();
+		test.draw();
 		break;
 	case mode_over:
 		break;

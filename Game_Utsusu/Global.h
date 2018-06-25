@@ -10,6 +10,7 @@
 #include "Easing.h"
 #include "Collision.h"
 #include "Map.h"
+#include "Enemy.h"
 #include "Entity.h"
 #include "Player.h"
 #include "Input.h"
