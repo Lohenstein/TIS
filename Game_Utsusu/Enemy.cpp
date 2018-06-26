@@ -68,3 +68,93 @@ void	Enemy::collision_to_stage() {
 		}
 	}
 }
+
+/*
+// GunEnemy 1 時間がたつと打つだけ
+void Enemy_Gun::move()
+{
+	
+}
+void Enemy_Gun::update() {				// テストアップデート
+	move();
+	collision_to_stage();
+	if (collision_to_player()) {
+		DrawString(10, 10, "あたってます", 0xFFFFFF);
+	}
+	y -= jump_p;				// 重力計算の書き方の例
+	jump_p -= gravity;
+}
+void Enemy_Gun::draw()
+{
+	if (attack_flag == false) {
+		attack_count++;
+		if (attack_count >= 100) {
+			attack_flag = true;
+			attack_count = 0;
+			bullet_x = x - camera_px + WINDOW_SIZE_X / 2.f;
+			bullet_y = y - camera_py + WINDOW_SIZE_Y / 2.f;
+		}
+	}
+	else if (attack_flag == true) {
+		attack_count++;
+		//bullet_y = dy;
+		bullet_y = y - camera_py + WINDOW_SIZE_Y / 2.f;
+		DrawCircle(bullet_x, bullet_y, 10, 0xffffff, true);
+		if (attack_count >= 100) {
+			attack_count = 0;
+			attack_flag = false;
+		}
+		else {
+			bullet_x += bullet_speed - tplayer.inertia_deg;
+		}
+	}
+}
+*/
+
+void Enemy_Gun::move()
+{
+	
+	x++;
+	dx++;
+}
+
+void Enemy_Gun::update() {				// テストアップデート
+	move();
+	collision_to_stage();
+	if (collision_to_player()) {
+		DrawString(10, 10, "あたってます", 0xFFFFFF);
+	}
+	y -= jump_p;				// 重力計算の書き方の例
+	jump_p -= gravity;
+	if (attack_count == 50)
+	jump_p = 20.f;
+}
+void Enemy_Gun::draw()
+{
+	dx = x - camera_px + WINDOW_SIZE_X / 2.f;
+	dy = y - camera_py + WINDOW_SIZE_Y / 2.f;
+	DrawBox(dx - w / 2, dy - h / 2, dx + w / 2, dy + h / 2, 0xFF0000, false);
+
+	if (attack_flag == false) {
+		attack_count++;
+		if (attack_count >= 100) {
+			attack_flag = true;
+			attack_count = 0;
+			bullet_x = x - camera_px + WINDOW_SIZE_X / 2.f;
+			bullet_y = y - camera_py + WINDOW_SIZE_Y / 2.f;
+		}
+	}
+	else if (attack_flag == true) {
+		attack_count++;
+		//bullet_y = dy;
+		bullet_y = y - camera_py + WINDOW_SIZE_Y / 2.f;
+		DrawCircle(bullet_x, bullet_y, 10, 0xffffff, true);
+		if (attack_count >= 100) {
+			attack_count = 0;
+			attack_flag = false;
+		}
+		else {
+			bullet_x += bullet_speed - tplayer.inertia_deg;
+		}
+	}
+}

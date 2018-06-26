@@ -15,6 +15,5 @@ public:
 	void	draw();
 
 };
-
 extern int		bsize;
 extern float	camera_px, camera_py;	// ƒJƒƒ‰‚ÌÀ•W

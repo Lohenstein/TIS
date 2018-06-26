@@ -9,6 +9,8 @@ public:
 	float	w, h;				// 幅と高さ
 	float	jump_p  = 0.f;		// ジャンプ
 	float	gravity = 1.f;		// 重力
+	float   dx, dy;
+
 
 	// ---< コンストラクタ >------------------------------------------------
 	Enemy() {
@@ -31,9 +33,32 @@ public:
 		jump_p -= gravity;
 	}
 	void	draw() {				// テスト描画
-		float dx, dy;
 		dx = x - camera_px + WINDOW_SIZE_X / 2.f;
 		dy = y - camera_py + WINDOW_SIZE_Y / 2.f;
 		DrawBox(dx - w / 2, dy - h / 2, dx + w / 2, dy + h / 2, 0xFF0000, false);
 	}
 };
+
+class Enemy_Gun : public Enemy 
+{
+public:
+	bool attack_flag;
+	int attack_count;
+	int bullet_speed;
+	int bullet_x;
+	int bullet_y;
+
+	//int rand	
+
+	Enemy_Gun() {
+		w = 80.f;
+		attack_flag = false;
+		bullet_speed = 10;
+	}
+
+	void draw();
+	void move();
+	void update();
+};
+
+
