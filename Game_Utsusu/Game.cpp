@@ -10,6 +10,7 @@ Player	tplayer;
 MoveFloor	entity[ENTITY_MAX];
 DropFloor	df[ENTITY_MAX];
 Enemy	test;
+Camera  Cam;
 Enemy_Gun gum;
 
 using	namespace Game;
@@ -41,6 +42,7 @@ void	game_main(void)
 		df[0].update();
 		tplayer.update();
 		test.update();
+		Cam.update();
 		gum.update();
 		break;
 	case mode_over:

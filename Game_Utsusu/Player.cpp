@@ -9,8 +9,8 @@ void	Player::update() {
 
 void	Player::draw() {
 
-	float pp_x = p_x - p_x + WINDOW_SIZE_X / 2 + (p_x - camera_px);
-	float pp_y = p_y - p_y + WINDOW_SIZE_Y / 2 + (p_y - camera_py);
+	float pp_x = p_x - p_x + WINDOW_SIZE_X / 2 + (p_x - Cam.get_rawx());
+	float pp_y = p_y - p_y + WINDOW_SIZE_Y / 2 + (p_y - Cam.get_rawy());
 
 	DrawBox(pp_x - p_w / 2, pp_y - p_h / 2, pp_x + p_w / 2, pp_y + p_h / 2, 0xFF0000, true);
 }
