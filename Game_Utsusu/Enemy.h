@@ -32,8 +32,8 @@ public:
 	}
 	void	draw() {				// ƒeƒXƒg•`‰æ
 		float dx, dy;
-		dx = x - camera_px + WINDOW_SIZE_X / 2.f;
-		dy = y - camera_py + WINDOW_SIZE_Y / 2.f;
+		dx = x - Cam.get_x();
+		dy = y - Cam.get_y();
 		DrawBox(dx - w / 2, dy - h / 2, dx + w / 2, dy + h / 2, 0xFF0000, false);
 	}
 };
